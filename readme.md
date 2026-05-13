@@ -3,6 +3,10 @@
 Submission for the Frontend Engineer position. Problems 1-3 are the relevant
 scope for an FE role; Problems 4 and 5 are intentionally out of scope.
 
+**Problem 2 is deployed:** https://fancy-swap-challenge.vercel.app/
+
+![Fancy Swap screenshot](src/problem2/fancy-swap/screenshot.png)
+
 ## Quickstart
 
 Each problem is self-contained: `cd src/problemN`, then `npm install && npm test`.
@@ -49,6 +53,9 @@ Total: **83 tests**, all green, across the three problems.
 - Dark mode with OKLCH design tokens, responsive, a11y-aware
   (Radix Dialog focus-trap, `aria-live` rate row).
 - Tested with Vitest + RTL.
+- Shipped with a multi-stage `Dockerfile` (Node 22 build, nginx 1.27
+  runtime on port 8080, non-root user, security headers, SPA fallback).
+  Run locally with `docker build -t fancy-swap . && docker run --rm -p 8080:8080 fancy-swap`.
 
 ### `src/problem3/`: Messy React Refactor
 - `messy.tsx`, the original `WalletPage` with all 15+ defects intact,

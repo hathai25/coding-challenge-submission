@@ -3,6 +3,10 @@
 A clean, accessible, real-time token swap UI. Built to demonstrate
 production-quality frontend habits in a single screen.
 
+**Live:** https://fancy-swap-challenge.vercel.app/
+
+![Fancy Swap screenshot](./screenshot.png)
+
 ![architecture: data → math → form → UI](https://img.shields.io/badge/architecture-pure_lib_%2B_hooks_%2B_ui-1f6feb)
 
 ## Run
