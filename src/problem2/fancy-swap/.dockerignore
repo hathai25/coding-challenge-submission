@@ -1,0 +1,14 @@
+node_modules
+dist
+coverage
+.vite
+.vitest-cache
+*.log
+.env
+.env.local
+.DS_Store
+.git
+.gitignore
+README.md
+Dockerfile
+.dockerignore

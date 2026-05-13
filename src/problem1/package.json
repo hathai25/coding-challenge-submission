@@ -1,0 +1,19 @@
+{
+  "name": "problem1-sum-to-n",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Three+ ways to sum 1..n, typed, tested, benchmarked.",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "bench": "tsx benchmark.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "tsx": "latest",
+    "typescript": "latest",
+    "vitest": "latest"
+  }
+}
