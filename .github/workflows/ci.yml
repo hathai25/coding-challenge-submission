@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: ${{ matrix.problem.name }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        problem:
+          - name: problem1
+            dir: src/problem1
+            build: false
+          - name: problem2
+            dir: src/problem2/fancy-swap
+            build: true
+          - name: problem3
+            dir: src/problem3
+            build: false
+    defaults:
+      run:
+        working-directory: ${{ matrix.problem.dir }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: ${{ matrix.problem.dir }}/package-lock.json
+
+      - name: Install
+        run: npm ci
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Test
+        run: npm test
+
+      - name: Build
+        if: ${{ matrix.problem.build }}
+        run: npm run build
